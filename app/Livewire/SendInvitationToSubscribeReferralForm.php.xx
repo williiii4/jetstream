@@ -1,0 +1,23 @@
+<?php
+
+namespace App\Livewire;
+
+//use GuzzleHttp\Psr7\Request;
+use Livewire\Component;
+
+class SendInvitationToSubscribeReferralForm extends Component
+{
+    public $email;
+
+    public function send_email_referred()
+    {
+        //error_log("REQUEST: " . json_encode($request));
+        return $this->redirect('/invitation');
+        //return "send email referred";
+    }
+
+    public function render()
+    {
+        return view('livewire.send-invitation-to-subscribe-referral-form');
+    }
+}

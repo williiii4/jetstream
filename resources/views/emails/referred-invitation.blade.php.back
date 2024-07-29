@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Invitación a registrarse</title>
+    <style type="text/css">
+        body {
+            font-family: 'Verdana';
+            font-size: 15px;
+            background-color: rgb(255, 255, 255);
+        }
+        h1 {
+            font-size: 20px;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Saludos, {{$name}}</h1>
+    <p>Esto es una prueba de envío de emails desde Laravel.</p>
+    <a href="{{ route('referred', 'e4128de1-9f0a-4a92-a62d-c7c273463eab')}}">Acceda y registrese</a>
+</body>
+</html>
