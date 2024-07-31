@@ -16,6 +16,8 @@ use App\Http\Middleware\CheckLanguage;
 use App\Livewire\ReferredFormInvitation;
 use App\Http\Controllers\ProductController;
 
+use Laravel\Fortify\Http\Controllers\ContractController;
+
 Route::get('/', function () {
     return view('welcome');    
 })->middleware([CheckLanguage::class]);
@@ -45,6 +47,12 @@ Route::middleware([
     Route::get('/products', [ProductController::class, 'marketplace'])->name('products');
     
     Route::get('/product/{id?}', [ProductController::class, 'product_buy']);
+
+    Route::get('/contract_list/{id?}', [ContractController::class, 'list'])->name('contract_list');
+    
+    Route::get('/contracts', [ContractController::class, 'index'])->name('contracts');
+
+    Route::post('/checkout', [ContractController::class, 'store'])->name('checkout');
 
     
 });

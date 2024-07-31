@@ -134,26 +134,36 @@
                                 @lang('dashboard.back_profile')                               
                             </x-dropdown-link>
 
-                            <x-dropdown-link href="{{ route('users') }}">
-                                @lang('dashboard.back_users')
+                            <x-dropdown-link href="{{ route('contract_list') }}">
+                                @lang('dashboard.back_contracts_list')                               
                             </x-dropdown-link>
 
-                            <x-dropdown-link href="{{ route('products_list') }}">
-                                @lang('dashboard.back_products_list')
-                            </x-dropdown-link>
+                            @if (auth()->user()->admin)
+                                <x-dropdown-link href="{{ route('users') }}">
+                                    @lang('dashboard.back_users_list')
+                                </x-dropdown-link>
+                            @endif
+
+                            @if (auth()->user()->admin)
+                                <x-dropdown-link href="{{ route('products_list') }}">
+                                    @lang('dashboard.back_products_list')
+                                </x-dropdown-link>
+                            @endif
 
                             <x-dropdown-link href="{{ route('products') }}">
                                 @lang('dashboard.back_marketplace')
                             </x-dropdown-link>
 
                             <x-dropdown-link href="{{ route('referred-invitation') }}">
-                                {{ __('Invitar a referido') }}
+                                @lang('dashboard.back_referred_invitation')
                             </x-dropdown-link>
 
-                            @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
-                                <x-dropdown-link href="{{ route('api-tokens.index') }}">
-                                    {{ __('API Tokens') }}
-                                </x-dropdown-link>
+                            @if (auth()->user()->admin)
+                                @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
+                                    <x-dropdown-link href="{{ route('api-tokens.index') }}">
+                                        {{ __('API Tokens') }}
+                                    </x-dropdown-link>
+                                @endif
                             @endif
 
                             <div class="border-t border-gray-200 dark:border-gray-600"></div>
@@ -213,26 +223,32 @@
                     {{ __('Profile') }}
                 </x-responsive-nav-link>
 
-                @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
-                    <x-responsive-nav-link href="{{ route('api-tokens.index') }}" :active="request()->routeIs('api-tokens.index')">
-                        {{ __('API Tokens') }}
+                @if (auth()->user()->admin)
+                    @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
+                        <x-responsive-nav-link href="{{ route('api-tokens.index') }}" :active="request()->routeIs('api-tokens.index')">
+                            {{ __('API Tokens') }}
+                        </x-responsive-nav-link>
+                    @endif
+                @endif
+
+                @if (auth()->user()->admin)
+                    <x-responsive-nav-link href="{{ route('users') }}">
+                        @lang('dashboard.back_users_list')
                     </x-responsive-nav-link>
                 @endif
 
-                <x-responsive-nav-link href="{{ route('users') }}">
-                    {{ __('Users') }}
-                </x-responsive-nav-link>
-
-                <x-responsive-nav-link href="{{ route('products_list') }}">
-                    @lang('dashboard.back_products_list')
-                </x-responsive-nav-link>
+                @if (auth()->user()->admin)
+                    <x-responsive-nav-link href="{{ route('products_list') }}">
+                        @lang('dashboard.back_products_list')
+                    </x-responsive-nav-link>
+                @endif
 
                 <x-responsive-nav-link href="{{ route('products') }}">
                     @lang('dashboard.back_marketplace')
                 </x-responsive-nav-link>
 
                 <x-responsive-nav-link href="{{ route('referred-invitation') }}">
-                    {{ __('Invitar a referido') }}
+                    @lang('dashboard.back_referred_invitation')
                 </x-responsive-nav-link>
 
                 <!-- Authentication -->

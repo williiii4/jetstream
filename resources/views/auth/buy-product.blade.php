@@ -136,10 +136,19 @@
                                     </span>
                                 @endif
                                 </div>
-                                <button
+                                {{-- <button
                                     class="bg-blue-400 font-semibold hover:bg-blue-500 py-3 text-sm text-white uppercase w-full rounded-sm">
                                     Checkout
-                                </button>
+                                </button> --}}
+                                <form method="POST" action="{{ route('checkout') }}">
+                                    @csrf
+                                    <input id="product_id" type="hidden" name="product_id" value="{{ $product->id }}">
+
+                                    <button
+                                        class="bg-blue-400 font-semibold hover:bg-blue-500 py-3 text-sm text-white uppercase w-full rounded-sm">
+                                        Checkout
+                                    </button>
+                                </form>
                             </div>
                         </div>
                     </div>

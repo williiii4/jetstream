@@ -9,11 +9,12 @@ return [
     'back_authentication' => 'Autenticación',
     'back_videotutorials' => 'Tutoriales en vídeo',
     'back_users' => 'Usuarios',
-    'back_profile' => 'Perfil de usuario',
+    'back_profile' => 'Perfil de Usuario',
     'back_profile_info' => 'Información del perfil',
     'back_profile_description' => 'Actualice la información del perfil, la dirección de correo electrónico de su cuenta y su identificador de Wallet.',
     'back_update_password' => 'Actualizar contraseña',
     'back_password_description' => 'Asegúrese de que su cuenta utilice una contraseña larga y aleatoria para mantenerse segura.',
+    'back_referred_invitation' => 'Invitar Referido',
 
     // FAQ
     'back_section_faq' => 'Preguntas Frecuentes',
@@ -72,12 +73,15 @@ return [
 
 
     // Products
-    'back_products_list' => 'Listado de productos',
+    'back_products_list' => 'Listado de Productos',
     'back_marketplace' => 'Marketplace',
     'card_price' => 'Precio: ',
     'card_monthly_profitability' => 'Rentabilidad mensual: ',
     'checkout_summary' => 'Resumen del pedido',
     'shoping_cart' => 'Carro de la compra',
 
+    // Contracts
+    'back_contracts_list' => 'Mis Contratos',
+    'back_users_list' => 'Listado de Usuarios',
 
 ];
